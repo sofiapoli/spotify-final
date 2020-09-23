@@ -1,0 +1,131 @@
+.home-article-principal {
+    text-align: center;
+  }
+  .home-inside {
+    margin: 50px 50px 50px 50px;
+  }
+  .home-view__logo {
+    height: 80px;
+  }
+  .home-view__header {
+    background-color: #000;
+    margin-bottom: 0;
+    width: 100%;
+    height: 80px;
+    padding: 5px;
+  }
+  input[type=submit] {
+    width: 10%;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid white;
+    border-radius: 4px;
+    background-color: black;
+    color: white;
+  }
+  .home-view__title {
+      text-align: left;
+  }
+  .home-title {
+    text-align: left;
+    color: white;
+    font-size: 40px;
+  }
+  .home-pre-title {
+    text-align: left;
+    color: black;
+    font-size: 30px;
+  }
+  .text {
+    color: white;
+    font-style: bold;
+  }
+  .home-text {
+    text-align: left;
+    color: black;
+    font-size: 20px;
+    font-style: bold;
+  }
+  .home-view__s {
+    text-align: left;
+  }
+ 
+  .home-view__favourites {
+      text-align: left;
+  }
+  .home-view__nav {
+    text-align: left;
+  }
+  .home-view__footer {
+      background-color: #000;
+    width: 100%;
+    height: 80px; 
+  }
+  #links {
+    color: white;
+  }
+  
+  @media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2){
+    .home-article-principal {
+      text-align: center;
+    }
+    .home-inside {
+      margin: 50px 50px 50px 50px;
+    }
+  
+    .home-view__header {
+      background-color: #000;
+      margin-bottom: 0;
+      width: 100%;
+      height: 80px;
+      padding: 5px;
+    }
+    input[type=submit] {
+      width: 20%;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid white;
+      border-radius: 4px;
+      background-color: black;
+      color: white;
+    }
+    .home-view__title {
+      text-align: left;
+    }
+    .home-title {
+      text-align: left;
+      color: white;
+      font-size: 40px;
+    }
+    .home-pre-title {
+      text-align: left;
+      color: black;
+      font-size: 30px;
+    }
+    .text {
+      color: white;
+      font-style: bold;
+    }
+    .home-text {
+       text-align: left;
+      color: black;
+      font-size: 20px;
+      font-style: bold;
+    }
+    .home-view__s {
+      text-align: left;
+    }
+    
+    }
+    .home-view__favourites {
+      text-align: left;
+    }
+    .home-view__nav {
+      text-align: left;
+    }
+    
+    #links {
+      color: white;
+    }
+   
+  
