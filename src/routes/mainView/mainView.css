@@ -1,31 +1,20 @@
 .main-view {
     text-align: center;
+    background-color: pink;
   }
- 
+  .main-view__logo {
+    height: 120px;
+    width:20%;
+  }
   .main-view__header {
     background-color: #000;
-    height: 170px;
-    padding: 20px;
-    color: white;
+    height: 110px;
+    padding: 50px;
+    color:pink;
   }
   
   .links{
-    color: white;
+    color:black;
   }
   
-  @media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
-    .main-view {
-      text-align: center;
-    }
-    
-    .main-view__header {
-      background-color: #000;
-      height: 170px;
-      padding: 20px;
-      color: white;
-    }
-    
-    .links{
-        color: white;
-    }
-  }
+ 

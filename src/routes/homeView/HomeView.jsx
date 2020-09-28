@@ -1,27 +1,22 @@
-import React, {Component} from 'react';
-import{Link} from 'react-router-dom';
 import './homeView.css';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png'
+import Artist from '../artistView/Artist';
+import { SearchForm } from '../../components/SearchForm';
 
-var x;
+
 
 class HomeView extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {value: ''};
-        this.handleChange = this.handleChange.bind(this);
-        this.acept = this.acept.bind(this);
+    state = { usedSearch: false, results: []}
+    _handleResults =(results) =>{
+      this.setState({results, usedSearch:true})
     }
-
-    handleChange(event) { 
-        x = this.state.value;
-        window.location.href= '/artistsListView?value='+x;
-        event.preventDefault();
+    _renderResults (){
+      return this.state.results.length === 0
+        ? <p>Sorry! 😞 Results not found! </p>
+        : <Artist artist={this.state.results} />
     }
- 
-    acept(event){
-        this.setState({value: event.target.value});
-    }
-
     render() {
         return (
             <article className="home-article-principal">
@@ -32,11 +27,8 @@ class HomeView extends Component {
                         <p className="text">Search your favourite song over Spotify, just enter an artist's name in the<br/>
                         following search box and enjoy!</p>
                     </header>
-                    <div className="home-view__s">
-                        <form name="myForm" action="/artistsListView" onSubmit={this.handleChange} method="get">
-                            <input type="text" id="artista" className="home-view__search-query" value={this.state.value} onChange={this.acept} placeholder="Type the name of your favorite artist..." /> 
-                            <input type="submit" value="search"/>
-                        </form>
+                    <div className= "SearchForm-wrapper">
+                    <SearchForm/>
                     </div>
                     <div className="home-view__favourites">
                         <h3>Favorite Songs</h3>
@@ -52,7 +44,10 @@ class HomeView extends Component {
                         </ul>
                     </nav>
                 </div>
-               
+                <Artist/>
+                <footer className="home-view__footer">
+                <img src={logo} className="home-view__logo" alt="logo" />
+                </footer>
             </article>
         );
     }

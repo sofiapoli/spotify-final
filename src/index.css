@@ -13,5 +13,7 @@ li {
     margin: 0 10px;
 }
 body {
-    background-color: pink;
+    background-image: pink;
+    
+    background-size: cover;
 }
