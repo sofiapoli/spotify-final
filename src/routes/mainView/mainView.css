@@ -1,20 +1,18 @@
 .main-view {
-    text-align: center;
-    background-color: pink;
-  }
-  .main-view__logo {
-    height: 120px;
-    width:20%;
-  }
-  .main-view__header {
-    background-color: #000;
-    height: 110px;
-    padding: 50px;
-    color:pink;
-  }
-  
-  .links{
-    color:black;
-  }
-  
- 
+  text-align: center;
+  background-color: pink;
+}
+.main-view__logo {
+  height: 120px;
+  width: 20%;
+}
+.main-view__header {
+  background-color: #000;
+  height: 110px;
+  padding: 50px;
+  color: pink;
+}
+
+.links {
+  color: black;
+}

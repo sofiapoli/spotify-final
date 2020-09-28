@@ -1,19 +1,29 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  text-align: center;
 }
 ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 li {
-    display: inline-block;
-    margin: 0 10px;
+  display: inline-block;
+  margin: 0 10px;
 }
 body {
-    background-image: pink;
-    
-    background-size: cover;
+  background-image: pink;
+
+  background-size: cover;
+}
+
+input[type="submit"] {
+  width: 10%;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid white;
+  border-radius: 4px;
+  background-color: black;
+  color: white;
 }
