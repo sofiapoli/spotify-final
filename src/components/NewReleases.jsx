@@ -1,11 +1,15 @@
 import axios from "axios";
+
 import React, { useEffect, useState } from "react";
 import qs from "query-string";
 
-import AlbumCard from "./AlbumCard";
+import Loading from "./Loading/Loading";
+
+import SongCard from "./Songs/SongCard";
+
 import { useLocation } from "react-router-dom";
 
-export function Artist() {
+export function NewReleases() {
   const [albums, setAlbums] = useState([]);
   const location = useLocation();
   const query = qs.parse(location.search);
@@ -13,7 +17,7 @@ export function Artist() {
   console.log(query);
   useEffect(() => {
     const token =
-      "BQCyf7K1ObLA2zu_yOOTR3PsBqVjpbyHBC7LHxZvWKo_dqaKALSRLO5R1Z_vQFdi17IDq-mwbkPwLXph7Es";
+      "BQB0CCyhWq5lijMwqhZGnWaXOisbMZBxSGL28Bep-28UKcSbVcOdObxesXYQg23WjtAHKIk8aCnmoPPnMSk";
 
     const headers = {
       Authorization: "Bearer " + token,
@@ -21,18 +25,20 @@ export function Artist() {
     axios
       .get("https://api.spotify.com/v1/browse/new-releases", { headers })
       .then((res) => {
-        console.log(res.data.albums.items);
         setAlbums(res.data.albums.items);
       });
   }, []);
 
   return (
     <div>
-      <p className="white">Artists Component</p>
-      <div>
-        {albums.map((album) => (
-          <AlbumCard album={album} key={album.id} />
-        ))}
+      <h1 className="font-bold text-xl mb-8">New Releases</h1>
+
+      <div className="flex flex flex-wrap justify-between">
+        {albums ? (
+          albums.map((album) => <SongCard album={album} key={album.id} />)
+        ) : (
+          <Loading />
+        )}
       </div>
     </div>
   );
