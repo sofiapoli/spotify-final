@@ -7,11 +7,11 @@ const SongCard = ({ album }) => {
 
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      {/* <Link to={'artists/' + artists[0].id}> */}
+    
 
-      <img className="w-full" src={images[0].url} alt={name} />
+      <img className="flex justify-between" src={images[0].url} alt={name} />
 
-      {/* </Link> */}
+    
 
       <div className="px-4 py-4">
         <div className="font-bold text-black text-xl mb-2">{name}</div>
@@ -21,7 +21,9 @@ const SongCard = ({ album }) => {
             {artists[0].name}{" "}
             {artists.length > 1 ? "& " + artists[1].name : null}
             <Link to={`/albumList/${album.id}`}>
-              {album.id}Ir a las canciones
+              {" "}
+              <br></br>
+            
             </Link>
           </Link>
         </p>

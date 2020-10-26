@@ -9,8 +9,9 @@ import { Link, useLocation } from "react-router-dom";
 import Header from "../Header";
 
 import Loading from "../Loading/Loading";
-import Searchbar from "../Searchbar";
+
 import Footer from "../Footer";
+import Breadcrumb from "../Breadcrumb";
 
 const ArtistList = () => {
   const location = useLocation();
@@ -21,7 +22,7 @@ const ArtistList = () => {
 
   useEffect(() => {
     const token =
-      "BQB0CCyhWq5lijMwqhZGnWaXOisbMZBxSGL28Bep-28UKcSbVcOdObxesXYQg23WjtAHKIk8aCnmoPPnMSk";
+      "BQDS1JTSgn11C7EncGxeWmcBuYH9rNPQOBN9FZ_yrKCDzD1_Npauaw0Uc8-YVVwh-TPfUFWUALY6pnYQLbk";
 
     const headers = {
       Authorization: "Bearer " + token,
@@ -44,29 +45,60 @@ const ArtistList = () => {
     <div>
       <Header />
 
-      <Searchbar />
-      <div className="container mx-auto black">
+      <div className="container mx-auto text-black">
         <h2 className="font-bold text-4xl mt-3 text-pink-800">Artists</h2>
 
-        <hr className="mt-3 mb-3" />
+ 
+        <p>
+          Search Results: <span className="font-bold">"{query.search}"</span>
+        </p>
 
-        <div>
+        <div className="mt-6">
+        <Breadcrumb 
+            
+            links={[
+              { to: "/artists", label: "Artists" },
+            ]} className="mt-8"
+          />
+        </div>
+
+        <hr className="mt-2 mb-8" />
+
+        <div className="flex flex-wrap">
           {!artists ? (
             <Loading />
           ) : (
             artists.map((artist) => (
-              <div>
-                <h1>{artist.name}</h1>
+              <div className="inline-flex">
+                <div className="flex flex-wrap max-w-sm">
+                  <div className="flex p-3">
+                    <div>
+                      <Link to={`/artists/${artist.id}`}>
+                        <img
+                          src={
+                            artist.images[0]
+                              ? artist.images[0].url
+                              : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+                          }
+                          alt={artist.name}
+                        />
+                      </Link>
+                    </div>
 
-                <img
-                  src={
-                    artist.images[0]
-                      ? artist.images[0].url
-                      : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
-                  }
-                  alt={artist.name}
-                />
-                <Link to={`/artists/${artist.id}`}>ir al album</Link>
+                    <div className="ml-4">
+                      <h5 className="font-bold text-xl">
+                        <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
+                      </h5>
+
+                      <p className="mt-2 mb-2 capitalize">
+                        {artist.genres[0]}{" "}
+                        {artist.genres.length > 1
+                          ? " | " + artist.genres[1]
+                          : null}{" "}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))
           )}

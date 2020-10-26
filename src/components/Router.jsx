@@ -19,7 +19,11 @@ class Router extends React.Component {
           <Route exact path="/artists" component={ArtistList}></Route>
 
           <Route exact path="/artists/:artistId" component={Artist}></Route>
-          <Route exact path="/albumList/:albumId" component={AlbumList}></Route>
+          <Route
+            exact
+            path="/artists/:artistId/:albumId"
+            component={AlbumList}
+          ></Route>
           <Route path="/" component={Home}></Route>
         </Switch>
       </BrowserRouter>

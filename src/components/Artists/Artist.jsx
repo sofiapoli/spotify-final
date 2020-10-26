@@ -2,16 +2,16 @@ import Axios from "axios";
 
 import React, { useEffect, useState } from "react";
 
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import Breadcrumb from "../Breadcrumb";
 
 import Header from "../Header";
-
+import Footer from "../Footer";
 import Loading from "../Loading/Loading";
-import Searchbar from "../Searchbar";
 
-import SongCard from "../Songs/SongCard";
+
+import AlbumCard from "../Album/AlbumCard";
 
 const Artist = () => {
   const [artist, setArtist] = useState(null);
@@ -22,7 +22,7 @@ const Artist = () => {
 
   useEffect(() => {
     const token =
-      "BQB0CCyhWq5lijMwqhZGnWaXOisbMZBxSGL28Bep-28UKcSbVcOdObxesXYQg23WjtAHKIk8aCnmoPPnMSk";
+      "BQDS1JTSgn11C7EncGxeWmcBuYH9rNPQOBN9FZ_yrKCDzD1_Npauaw0Uc8-YVVwh-TPfUFWUALY6pnYQLbk";
 
     const headers = {
       Authorization: "Bearer " + token,
@@ -46,7 +46,10 @@ const Artist = () => {
   return (
     <div>
       <Header />
-      <Searchbar />
+
+     
+      <h2 className="font-bold text-4xl mt-3 text-pink-800">Artist</h2>
+
       {!artist ? (
         <Loading />
       ) : (
@@ -56,7 +59,7 @@ const Artist = () => {
               <img
                 src={
                   artist.images[0]
-                    ? artist.images[0].url
+                    ? artist.images[1].url
                     : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
                 }
                 alt={artist.name}
@@ -70,35 +73,37 @@ const Artist = () => {
             </div>
           </div>
 
-          <div>
-            <Breadcrumb
-              key={artist.id}
-              links={[
-                { to: "/artists", label: "Artists" },
-
-                { to: "/artists/artistId", label: `${artist.name}` },
-              ]}
-              className="mt-8"
-            />
+          <div className="mt-3 mb-3">
+          <Breadcrumb
+                key={artist.id}
+                links={[
+                  { to: "/artists", label: "Artists" },
+                  { to: "/artists/artistId", label: `${artist.name}` },
+                ]} className="mt-8"
+              />
 
             <hr />
           </div>
 
-          <div>
-            <div className="flex flex-wrap justify-between">
-              <div>
-                {artistAlbum ? (
-                  artistAlbum.map((album) => (
-                    <SongCard album={album} key={album.id} />
-                  ))
-                ) : (
-                  <Loading />
-                )}
-              </div>
+          <div className="container">
+            <div className="mt-10">
+              <div className="flex justify-between"></div>
+            </div>
+            <div className="mt-10">
+              {artistAlbum ? (
+                artistAlbum.map((album) => (
+                  <div className="inline-flex">
+                    <AlbumCard album={album} key={album.id} />
+                  </div>
+                ))
+              ) : (
+                <Loading />
+              )}
             </div>
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 };

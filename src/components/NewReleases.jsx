@@ -17,7 +17,7 @@ export function NewReleases() {
   console.log(query);
   useEffect(() => {
     const token =
-      "BQB0CCyhWq5lijMwqhZGnWaXOisbMZBxSGL28Bep-28UKcSbVcOdObxesXYQg23WjtAHKIk8aCnmoPPnMSk";
+      "BQDS1JTSgn11C7EncGxeWmcBuYH9rNPQOBN9FZ_yrKCDzD1_Npauaw0Uc8-YVVwh-TPfUFWUALY6pnYQLbk";
 
     const headers = {
       Authorization: "Bearer " + token,
@@ -33,7 +33,7 @@ export function NewReleases() {
     <div>
       <h1 className="font-bold text-xl mb-8">New Releases</h1>
 
-      <div className="flex flex flex-wrap justify-between">
+      <div className="flex flex-wrap justify-between">
         {albums ? (
           albums.map((album) => <SongCard album={album} key={album.id} />)
         ) : (

@@ -6,9 +6,9 @@ import { NewReleases } from "../NewReleases";
 
 import Searchbar from "../Searchbar";
 import Footer from "../Footer";
-import SongsList from "../Songs/SongsList";
+import Favorites from "../Favorites"
 
-//import SongsList from '../Songs/SongsList';
+
 
 function Home() {
   return (
@@ -33,21 +33,16 @@ function Home() {
 
         <Searchbar />
 
-        {/* If the user is logged in favourites should be displayed */}
-
         <div>
-          <h2 className="text-black font-bold text-2xl">Favorite Songs</h2>
-
-          <SongsList />
-
-          <SongsList />
-
-          <SongsList />
+          
+         <Favorites/>
+        <  NewReleases/>
+          
         </div>
 
         <hr className="mt-5 mb-4 " />
 
-        <NewReleases />
+       
       </div>
       <Footer />
     </div>
