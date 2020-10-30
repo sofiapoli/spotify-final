@@ -1,9 +1,6 @@
 import React from "react";
-
 import Header from "../Header";
-
 import { NewReleases } from "../NewReleases";
-
 import Searchbar from "../Searchbar";
 import Footer from "../Footer";
 import Favorites from "../Favorites"
@@ -12,8 +9,9 @@ import Favorites from "../Favorites"
 
 function Home() {
   return (
-    <div className="main-bkg">
-      <Header />
+    <div>
+    <Header/>
+  <div className="container mx-auto p-2">
 
       <div className="container mx-auto text-black-300 mt-6">
         <span className="text-3xl font-bold cursive font-style: italic text-pink-800">
@@ -34,17 +32,16 @@ function Home() {
         <Searchbar />
 
         <div>
-          
-         <Favorites/>
-        <  NewReleases/>
-          
+          <Favorites />
+          <NewReleases />
         </div>
 
         <hr className="mt-5 mb-4 " />
-
-       
-      </div>
-      <Footer />
+        
+        </div>
+    
+    </div>
+    <Footer />
     </div>
   );
 }

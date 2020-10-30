@@ -1,64 +1,40 @@
-import axios from "axios";
-
 import queryString from "query-string";
-
 import React, { useEffect, useState } from "react";
-
 import { Link, useLocation } from "react-router-dom";
-
+import { spotify } from "../../api/spotify";
+import Breadcrumb from "../Breadcrumb";
+import Footer from "../Footer";
 import Header from "../Header";
 
 import Loading from "../Loading/Loading";
-
-import Footer from "../Footer";
-import Breadcrumb from "../Breadcrumb";
+import Searchbar from "../Searchbar";
 
 const ArtistList = () => {
   const location = useLocation();
-
   const query = queryString.parse(location.search);
-
   const [artists, setArtists] = useState(null);
-
   useEffect(() => {
-    const token =
-      "BQDS1JTSgn11C7EncGxeWmcBuYH9rNPQOBN9FZ_yrKCDzD1_Npauaw0Uc8-YVVwh-TPfUFWUALY6pnYQLbk";
-
-    const headers = {
-      Authorization: "Bearer " + token,
-    };
-
-    axios
-      .get(
-        `https://api.spotify.com/v1/search?q=${query.search}&type=artist&limit=10`,
-        { headers }
-      )
-
-      .then((res) => {
-        console.log(res.data.artists.items);
-
-        setArtists(res.data.artists.items);
-      });
+    spotify.get(`search?q=${query.search}&type=artist&limit=10`).then((res) => {
+      setArtists(res.data.artists.items);
+    });
   }, [query.search]);
 
   return (
     <div>
       <Header />
-
-      <div className="container mx-auto text-black">
+      <div className="container mx-auto p-4 text-black">
         <h2 className="font-bold text-4xl mt-3 text-pink-800">Artists</h2>
 
- 
         <p>
           Search Results: <span className="font-bold">"{query.search}"</span>
         </p>
+        
+        <Searchbar />
 
         <div className="mt-6">
-        <Breadcrumb 
-            
-            links={[
-              { to: "/artists", label: "Artists" },
-            ]} className="mt-8"
+          <Breadcrumb
+            links={[{ to: "/artists", label: "Artists" }]}
+            className="mt-8"
           />
         </div>
 
