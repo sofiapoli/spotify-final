@@ -6,6 +6,8 @@ import Artist from "./Artists/Artist";
 
 import ArtistList from "./Artists/ArtistList";
 import AlbumList from "./Album/AlbumList";
+import Login from "./Login";
+
 
 import Home from "./Home/Home";
 
@@ -24,7 +26,9 @@ class Router extends React.Component {
             path="/artists/:artistId/:albumId"
             component={AlbumList}
           ></Route>
+           <Route path="/callback" component={Login}></Route>
           <Route path="/" component={Home}></Route>
+         
         </Switch>
       </BrowserRouter>
     );

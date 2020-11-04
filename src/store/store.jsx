@@ -5,6 +5,8 @@ export const initialState = {
   favorites: JSON.parse(localStorage.getItem("favs")) || [],
 };
 
+
+
 export function reducer(state, action) {
   switch (action.type) {
     case "add": {

@@ -28,7 +28,7 @@ const ArtistList = () => {
         <p>
           Search Results: <span className="font-bold">"{query.search}"</span>
         </p>
-        
+
         <Searchbar />
 
         <div className="mt-6">
@@ -67,10 +67,9 @@ const ArtistList = () => {
                       </h5>
 
                       <p className="mt-2 mb-2 capitalize">
-                        {artist.genres[0]}{" "}
-                        {artist.genres.length > 1
-                          ? " | " + artist.genres[1]
-                          : null}{" "}
+                        {artist && artist.genres.length > 1
+                          ? artist.genres[0] + " | " + artist.genres[1]
+                          : artist.genres[0]}
                       </p>
                     </div>
                   </div>

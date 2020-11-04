@@ -10,7 +10,7 @@ export function NewReleases() {
   const location = useLocation();
   const query = qs.parse(location.search);
 
-  console.log(query);
+  //console.log(query);
   useEffect(() => {
     spotify.get("browse/new-releases").then((res) => {
       setAlbums(res.data.albums.items);

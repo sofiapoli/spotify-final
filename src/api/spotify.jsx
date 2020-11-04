@@ -1,6 +1,8 @@
 import axios from "axios";
+
+
 const token =
-  "BQAJz82A9aX3-4GbeB_Js4RFJBJnMceqks3NF91OdxIeZdjPowpogJqwcio9zMDjKftV0er7-WY8mDF6Gm4";
+  "BQA3Qw_31nRYNBdyHYAqbAh5U5hSB7DMLN8-UMcLKpElflww8WJErTFZG6katMeiLK2Vayztp8oENu8G_5M";
 const headers = {
   Authorization: "Bearer " + token,
 };
@@ -13,11 +15,3 @@ export const spotify = {
   },
 };
 
-/*export const spotify = axios.create({
-  baseURL: "https://api.spotify.com/v1/",
-
-  headers: {
-    "Access-Control-Allow-Origin": "*",
-    Autorization: "Bearer " + token,
-  },
-});*/

@@ -16,9 +16,9 @@ const AlbumList = () => {
 
   useEffect(() => {
     spotify.get(`albums/${albumId}`).then((res) => {
-      console.log(res.data);
+      
       setAlbum(res.data);
-      console.log(res.data.tracks.items);
+     
       setAlbumTracks(res.data.tracks.items);
     });
   }, [albumId]);
@@ -109,9 +109,6 @@ const AlbumList = () => {
                     <span className="tooltip" onClick={() => toggleFav(id)}>
                       {isFavorite(id) ? (
                         <div>
-                          <span className="tooltip-text bg-pink-800 p-3 -mt-6 -ml-4 rounded">
-                            Remove from favorites!
-                          </span>
                           <svg
                             className="h-8 text-yellow-400"
                             xmlns="http://www.w3.org/2000/svg"
@@ -123,9 +120,6 @@ const AlbumList = () => {
                         </div>
                       ) : (
                         <div>
-                          <span className="tooltip-text bg-pink-800 p-3 -mt-6 -ml-4 rounded">
-                            Add to favorites!
-                          </span>
                           <svg
                             className="h-8 text-gray-300 hover:text-yellow-400"
                             xmlns="http://www.w3.org/2000/svg"
