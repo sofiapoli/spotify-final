@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const token =
-  "BQA3Qw_31nRYNBdyHYAqbAh5U5hSB7DMLN8-UMcLKpElflww8WJErTFZG6katMeiLK2Vayztp8oENu8G_5M";
+  "BQCOX8dzbxzewq87OqCgoVJKtUG8cQ5yzjGnozxQ_KjJORcIFx6i--VcUJl8WMwfVu1O90e7x7BAeuoOw1A";
 const headers = {
   Authorization: "Bearer " + token,
 };

@@ -6,12 +6,13 @@ const Login = () => {
   const userDataRequest = location.hash.split("&");
   console.log(userDataRequest);
 
-  const userAccessToken = userDataRequest[0].split("=");
-  const userIsLogged = userDataRequest[3].split("=");
+  const userAccessToken = userDataRequest[0].split("=")[1];
+  const userIsLogged = userDataRequest[3].split("=")[1];
 
+  console.log(userIsLogged);
   let userData = {
-    token: userAccessToken[1],
-    isLogged: userIsLogged[1] ? true : false,
+    token: userAccessToken,
+    isLogged: Boolean(userAccessToken),
   };
 
   localStorage.setItem("userData", JSON.stringify(userData));

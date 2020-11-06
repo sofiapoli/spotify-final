@@ -45,7 +45,7 @@ const ArtistList = () => {
             <Loading />
           ) : (
             artists.map((artist) => (
-              <div className="inline-flex">
+              <div className="inline-flex" key={artist.id}>
                 <div className="flex flex-wrap max-w-sm">
                   <div className="flex p-3">
                     <div>

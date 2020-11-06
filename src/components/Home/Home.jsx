@@ -8,7 +8,7 @@ import Favorites from "../Favorites";
 const Home = () => {
   const isLogged = () => {
     let data = JSON.parse(localStorage.getItem("userData")) || [];
-    return data.isLogged ? true : false;
+    return data.isLogged; 
   };
   return (
     <div>
