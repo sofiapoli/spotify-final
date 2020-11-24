@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import Loading from "./Loading/Loading";
+
 import SongList from "./Songs/SongList";
 import { spotify } from "../api/spotify";
 
@@ -25,7 +25,7 @@ const Favotites = () => {
         {tracks ? (
           tracks.map((track) => <SongList tracks={track} key={track.id} />)
         ) : (
-          <Loading />
+          <p> No favorites yet </p>
         )}
       </ul>
     </div>

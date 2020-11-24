@@ -20,7 +20,7 @@ const ArtistList = () => {
   }, [query.search]);
 
   return (
-    <div>
+    <div key={artists}>
       <Header />
       <div className="container mx-auto p-4 text-black">
         <h2 className="font-bold text-4xl mt-3 text-pink-800">Artists</h2>
@@ -31,7 +31,7 @@ const ArtistList = () => {
 
         <Searchbar />
 
-        <div className="mt-6">
+        <div className="mt-6" key={artists}>
           <Breadcrumb
             links={[{ to: "/artists", label: "Artists" }]}
             className="mt-8"

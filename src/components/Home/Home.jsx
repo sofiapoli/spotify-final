@@ -4,24 +4,27 @@ import { NewReleases } from "../NewReleases";
 import Searchbar from "../Searchbar";
 import Footer from "../Footer";
 import Favorites from "../Favorites";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  const isLogged = () => {
-    let data = JSON.parse(localStorage.getItem("userData")) || [];
-    return data.isLogged; 
-  };
+  const userData = useSelector((state) => state.userData != null);
+  const isLogged = Boolean(userData.token);
+ 
+
   return (
     <div>
       <Header />
-      {isLogged() ? (
-        false
-      ) : (
-        <button className="inline-center bg-pink-800 rounded px-3 py-1 text-sm font-bold text-white-700 mr-2 mb-2">
+      { userData ? isLogged ?
+      true :
+     <button className="inline-center bg-pink-800 rounded px-3 py-1 text-sm font-bold text-white-700 mr-2 mb-2">
           <a href="https://accounts.spotify.com/authorize?client_id=09180cc3f92d4003830e094162ca2627&redirect_uri=http://localhost:3000/callback&response_type=token&state=userLogged">
             LOGIN USER
           </a>
         </button>
-      )}
+        : null
+      }
+      
+      
 
       <div className="container mx-auto p-2">
         <div className="container mx-auto text-black-300 mt-6">
@@ -52,6 +55,6 @@ const Home = () => {
       <Footer />
     </div>
   );
-};
+};;
 
 export default Home;

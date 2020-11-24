@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import qs from "query-string";
+//import qs from "query-string";
 import Loading from "./Loading/Loading";
 import SongCard from "./Songs/SongCard";
-import { useLocation } from "react-router-dom";
+//import { useLocation } from "react-router-dom";
 import { spotify } from "../api/spotify";
 
 export function NewReleases() {
   const [albums, setAlbums] = useState([]);
-  const location = useLocation();
-  const query = qs.parse(location.search);
+  //const location = useLocation();
+  //const query = qs.parse(location.search);
 
-  //console.log(query);
+ // console.log(query);
+  
   useEffect(() => {
     spotify.get("browse/new-releases").then((res) => {
       setAlbums(res.data.albums.items);

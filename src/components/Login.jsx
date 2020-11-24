@@ -1,21 +1,16 @@
 import React from "react";
 import { Redirect, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const location = useLocation();
+
   const userDataRequest = location.hash.split("&");
-  console.log(userDataRequest);
 
   const userAccessToken = userDataRequest[0].split("=")[1];
-  const userIsLogged = userDataRequest[3].split("=")[1];
 
-  console.log(userIsLogged);
-  let userData = {
-    token: userAccessToken,
-    isLogged: Boolean(userAccessToken),
-  };
-
-  localStorage.setItem("userData", JSON.stringify(userData));
+  dispatch({ type: "login", token: userAccessToken });
 
   return <Redirect to="/" />;
 };

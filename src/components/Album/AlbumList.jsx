@@ -16,9 +16,8 @@ const AlbumList = () => {
 
   useEffect(() => {
     spotify.get(`albums/${albumId}`).then((res) => {
-      
       setAlbum(res.data);
-     
+
       setAlbumTracks(res.data.tracks.items);
     });
   }, [albumId]);
@@ -49,7 +48,10 @@ const AlbumList = () => {
         {!album ? (
           <Loading />
         ) : (
-          <div className="container mx-auto text-black mt-10 mb-10">
+          <div
+            className="container mx-auto text-black mt-10 mb-10"
+            key={albumId}
+          >
             <div className="flex inline-flex justify-between p-2">
               <div>
                 <img
@@ -68,7 +70,7 @@ const AlbumList = () => {
               </div>
             </div>
 
-            <div className="mt-3 mb-3">
+            <div className="mt-3 mb-3" key={albumId}>
               <Breadcrumb
                 key={album.id}
                 links={[
